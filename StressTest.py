@@ -53,7 +53,7 @@ while True:
         result=collection.find({"fromid":"6360d835770544ec3afbf375"})
         for item in result:
             ordertype = item['type']
-            print(ordertype)
+        print(ordertype)
         if ordertype == "buy":
             red()
         elif ordertype == "sell":
