@@ -50,9 +50,10 @@ collection = cluster.newOrders
 
 while True:
     if datetime.now().second == 30 or datetime.now().second == 0:
-        result=collection.find({"fromid":"6360d835770544ec3afbf375"})
+        result=collection.find({"fromid":"62e4fee75f855068e3168bb8"})
         for item in result:
             ordertype = item['type']
+            print(ordertype)
         if ordertype == "buy":
             red()
         elif ordertype == "sell":
