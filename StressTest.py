@@ -17,29 +17,29 @@ GPIO.setup(greenPin,GPIO.OUT)
 GPIO.setup(bluePin,GPIO.OUT)
 
 def turnOff():
-    GPIO.output(redPin,GPIO.HIGH)
-    GPIO.output(greenPin,GPIO.HIGH)
-    GPIO.output(bluePin,GPIO.HIGH)
+    GPIO.output(redPin,GPIO.LOW)
+    GPIO.output(greenPin,GPIO.LOW)
+    GPIO.output(bluePin,GPIO.LOW)
     
 def white():
-    GPIO.output(redPin,GPIO.LOW)
-    GPIO.output(greenPin,GPIO.LOW)
-    GPIO.output(bluePin,GPIO.LOW)
+    GPIO.output(redPin,GPIO.HIGH)
+    GPIO.output(greenPin,GPIO.HIGH)
+    GPIO.output(bluePin,GPIO.HIGH)
     
 def red():
-    GPIO.output(redPin,GPIO.LOW)
-    GPIO.output(greenPin,GPIO.HIGH)
-    GPIO.output(bluePin,GPIO.HIGH)
-
-def green():
     GPIO.output(redPin,GPIO.HIGH)
     GPIO.output(greenPin,GPIO.LOW)
-    GPIO.output(bluePin,GPIO.HIGH)
-    
-def blue():
-    GPIO.output(redPin,GPIO.HIGH)
+    GPIO.output(bluePin,GPIO.LOW)
+
+def green():
+    GPIO.output(redPin,GPIO.LOW)
     GPIO.output(greenPin,GPIO.HIGH)
     GPIO.output(bluePin,GPIO.LOW)
+    
+def blue():
+    GPIO.output(redPin,GPIO.LOW)
+    GPIO.output(greenPin,GPIO.LOW)
+    GPIO.output(bluePin,GPIO.HIGH)
 
 
 client = pymongo.MongoClient('mongodb+srv://'+"Wongzh"+':'+ "FYP2022" +'@p2pet.6ufu7nf.mongodb.net/?retryWrites=true&w=majority', tls=True)
