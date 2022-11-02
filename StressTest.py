@@ -8,9 +8,9 @@ GPIO.setwarnings(False)
 #Select GPIO Mode
 GPIO.setmode(GPIO.BCM)
 #set red,green and blue pins
-redPin = 13
-greenPin = 19
-bluePin = 26
+redPin = 33
+greenPin = 35
+bluePin = 37
 #set pins as outputs
 GPIO.setup(redPin,GPIO.OUT)
 GPIO.setup(greenPin,GPIO.OUT)
