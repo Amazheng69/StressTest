@@ -42,14 +42,13 @@ def blue():
     GPIO.output(bluePin,GPIO.HIGH)
 
 
-
+client = pymongo.MongoClient('mongodb+srv://'+"Wongzh"+':'+ "FYP2022" +'@p2pet.6ufu7nf.mongodb.net/?retryWrites=true&w=majority', tls=True)
+print("Connected to database")
+cluster=client["P2PET"]
+collection = cluster.newOrders
 
 while True:
-    if datetime.now().second == 30 or datetime.now().second == 0:
-        client = pymongo.MongoClient('mongodb+srv://'+"Wongzh"+':'+ "FYP2022" +'@p2pet.6ufu7nf.mongodb.net/?retryWrites=true&w=majority', tls=True)
-        print("Connected to database")
-        cluster=client["P2PET"]
-        collection = cluster.newOrders
+    if datetime.now().second == 45 or datetime.now().second == 30 or datetime.now().second == 15 or datetime.now().second == 0:
         result=collection.find({"fromid":"62cd362cbe040700b7eae7d0"})
         for item in result:
             ordertype = item['type']
