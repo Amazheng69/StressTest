@@ -49,7 +49,7 @@ collection = cluster.newOrders
 
 while True:
     if datetime.now().second == 45 or datetime.now().second == 30 or datetime.now().second == 15 or datetime.now().second == 0:
-        result=collection.find({"fromid":"62cd362cbe040700b7eae7d0"})
+        result=collection.find({"fromid":"62e4fee75f855068e3168bb8"})
         for item in result:
             ordertype = item['type']
         print(ordertype)
