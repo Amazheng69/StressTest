@@ -41,21 +41,24 @@ def blue():
     GPIO.output(greenPin,GPIO.LOW)
     GPIO.output(bluePin,GPIO.HIGH)
 
-
-client = pymongo.MongoClient('mongodb+srv://'+"Wongzh"+':'+ "FYP2022" +'@p2pet.6ufu7nf.mongodb.net/?retryWrites=true&w=majority', tls=True)
-print("Connected to database")
-cluster=client["P2PET"]
-collection = cluster.newOrders
-
 while True:
-    if datetime.now().second == 45 or datetime.now().second == 30 or datetime.now().second == 15 or datetime.now().second == 0:
-        result=collection.find({"fromid":"62e4fee75f855068e3168bb8"})
-        for item in result:
-            ordertype = item['type']
-        print(ordertype)
-        if ordertype == "buy":
-            red()
-        elif ordertype == "sell":
-            green()
-        else:
-            white()
+    # if datetime.now().second == 45 or datetime.now().second == 30 or datetime.now().second == 15 or datetime.now().second == 0:
+    if datetime.now().second % 10  == 0:
+        try:
+            client = pymongo.MongoClient('mongodb+srv://'+"Wongzh"+':'+ "FYP2022" +'@p2pet.6ufu7nf.mongodb.net/?retryWrites=true&w=majority', tls=True)
+            print("Connected to database")
+            cluster=client["P2PET"]
+            collection = cluster.newOrders
+            result=collection.find({"fromid":"62cd362cbe040700b7eae7d0"})
+            for item in result:
+                ordertype = item['type']
+            print(ordertype)
+            if ordertype == "buy":
+                red()
+            elif ordertype == "sell":
+                green()
+            else:
+                white()
+        except:
+            print("Something went wrong")
+        
