@@ -49,7 +49,7 @@ while True:
             print("Connected to database")
             cluster=client["P2PET"]
             collection = cluster.newOrders
-            result=collection.find({"fromid":"62fcd07fe8210b1d10221822"})
+            result=collection.find({"fromid":"62cd362cbe040700b7eae7d0"})
             for item in result:
                 ordertype = item['type']
             print(ordertype)
